@@ -1,6 +1,6 @@
 """
 Takes as command line arguments file1 file2 n
-0<n<1
+0<=n<=1
 Inserts the contents of file1 into file2 n-way through file2
 """
 import math
@@ -11,8 +11,8 @@ def main():
     file_in = sys.argv[1]
     file_out = sys.argv[2]
     n = sys.argv[3]
-    if not(0 < n < 1):
-        raise ValueError("n must be between 0 and 1 inclusive")
+    if not(0 <= n <= 1):
+        raise ValueError("n must be between 0 and 1 (inclusive)")
     raw_text = bring_files(file_in, file_out)
     text_out = insertion(raw_text, int(n))
     text_to_file(file_out, text_out)
